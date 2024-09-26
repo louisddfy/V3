@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #9c0489;
+    background-color: #ffaff4;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -11,7 +11,7 @@ h1 {
 }
 
 form {
-    background-color: #da09c1 ;
+    background-color: #ffffff ;
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -33,7 +33,7 @@ input[type="text"], input[type="email"], textarea {
     border-radius: 3px;
 }
 
-input[type="submit"] {
+input[type="submit"]{
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -42,7 +42,7 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover{
     background-color: red;
     color: yellow;
 }
@@ -53,4 +53,13 @@ input[type="number"] {
     margin-bottom: 10px;
     border: 5px solid #ccc;
     border-radius: 3px;
+}
+
+.Retour{
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
 }
