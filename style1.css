@@ -1,62 +1,68 @@
 /* Style général */
 body {
-    background-color: lightblue;
-    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
 }
 
 /* Conteneur principal */
 .allelements {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 /* Titre principal */
 h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     color: #333;
-    text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
-/* Style des liens */
-a {
-    display: block;
-    padding: 12px 20px;
+/* Conteneur des boutons */
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Style des liens (boutons) */
+.menu a {
+    display: inline-block;
+    padding: 15px 30px;
     background-color: #4CAF50;
     color: white;
     text-decoration: none;
-    border-radius: 8px;
-    margin-bottom: 10px;
     font-size: 1.2em;
-    width: 60%;
-    text-align: center;
-    transition: background-color 0.3s ease;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-a:hover {
+.menu a:hover {
     background-color: #45a049;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); /* Légère élévation au survol */
 }
 
-a:active {
+.menu a:active {
     background-color: #3e8e41;
-    transform: translateY(2px);
+    transform: translateY(2px); /* Effet de pression lors du clic */
 }
 
-/* Centrer les liens */
-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Style responsive */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+    }
 }
-
-/* Style des espacements */
-ul {
-    list-style-type: none;
-}
-
