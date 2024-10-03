@@ -22,8 +22,8 @@ h1 {
     font-size: 60px;
     margin-bottom: 20px;
     animation: fadeInDown 2s ease-out;
-    color: #60469c; /* Couleur dorée rappelant l'art asiatique */
-    text-shadow: 2px 2px 4px #000;
+    color: #5ad0ff; /* Couleur dorée rappelant l'art asiatique */
+    text-shadow: 2px 2px 2px #020b86;
 }
 
 .menu {
