@@ -1,20 +1,27 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
     margin: 0;
+    padding: 0;
+    background: url('https://i.pinimg.com/originals/f1/63/11/f16311fd0c32786525f471c685bc516e.gif') no-repeat center center fixed;
+    background-size: cover;
+    animation: backgroundAnimation 15s infinite alternate;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .container {
     width: 90%;
     margin: 0 auto;
     text-align: center;
+    color: #00ffcc; /* Assurez-vous que le texte est visible sur le fond */
 }
 
 h1 {
-    margin-top: 30px;
-    color: #333;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #00ffcc;
+    -webkit-text-stroke: 2px white; /* Contour blanc de 2 pixels pour les navigateurs WebKit */
+    text-stroke: 2px white; /* Contour standard */
 }
-
 .certificates {
     display: flex;
     flex-wrap: wrap;
@@ -24,7 +31,7 @@ h1 {
 
 .certificate {
     margin: 15px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8); /* Ajout d'un fond semi-transparent pour la lisibilité */
     padding: 10px;
     border: 1px solid #ccc;
 }
@@ -37,8 +44,8 @@ h1 {
 .certificate p {
     margin-top: 10px;
     font-weight: bold;
+    color: #333;
 }
-
 
 /* Conteneur du bouton Retour */
 .container-retour {
@@ -62,6 +69,16 @@ h1 {
 /* Effet de survol pour le bouton de retour */
 .Retour:hover {
     background-color: #e67e22;
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-15px);
+    box-shadow: 0 12px 20px rgba(255, 136, 0, 0.8);
+}
+
+/* Animation de fond */
+@keyframes backgroundAnimation {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
 }
