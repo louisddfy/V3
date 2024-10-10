@@ -1,0 +1,126 @@
+<!--DEFLECHY Louis-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'inscription - Événement</title>
+    <style>
+        body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #1e90ff, #87cefa);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #1e90ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #79a4ff;
+        }
+        li {
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+li:hover {
+    transform: scale(1.05);
+}
+
+a {
+    text-decoration: none;
+    color: #1e90ff;
+    background: #ffffff;
+    font-weight: bold;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 5px;
+}
+
+a:hover {
+    color: #ffffff;
+    background: #1e90ff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+    </style>
+</head>
+<body>
+    <h1>Evenement FEDx Inscription</h1>
+    <form action="#" method="post">
+        <table border="0">
+            <tr>
+                <td><label for="nom">Nom :</label></td>
+                <td><input type="text" id="nom" name="nom" placeholder="Votre nom" maxlength="50" required></td>
+            </tr>
+            <tr>
+                <td><label for="prenom">Prénom :</label></td>
+                <td><input type="text" id="prenom" name="prenom" placeholder="Votre prénom" maxlength="50" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email :</label></td>
+                <td><input type="email" id="email" name="email" placeholder="Votre email" maxlength="100" required></td>
+            </tr>
+            <tr>
+                <td><label for="telephone">Téléphone :</label></td>
+                <td><input type="tel" id="telephone" name="telephone" placeholder="Votre numéro de téléphone" maxlength="15" required></td>
+            </tr>
+            <tr>
+                <td><label for="departement">Numéro de département :</label></td>
+                <td><input type="number" id="departement" name="departement" placeholder="Numéro de département" maxlength="3" required></td>
+            </tr>
+            <tr>
+                <td><label for="Ville">Ville :</label></td>
+                <td><input type="text" id="Ville" name="ville" placeholder="Ville" maxlength="3" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;"><input type="submit" value="S'inscrire"></td>
+            </tr>
+        </table>
+        
+    </form>
+    <h5><a href="../mission4/index.html" class="Retour">Retour</a></h5>
+</body>
+</html>

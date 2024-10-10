@@ -42,7 +42,7 @@ body {
 /* Animation pour l'effet de clignotement du curseur */
 @keyframes blink-caret {
     from, to { border-color: transparent; }
-    50% { border-color: #50000000; }
+    50% { border-color: #ff000000; }
 }
 
 .menu {
@@ -86,7 +86,7 @@ body {
     font-size: 1em;
     font-weight: bold;
 }
-
+/*
 .matrix-copy {
     font-size: 1em;
     margin-bottom: 50px;
@@ -94,27 +94,8 @@ body {
     overflow: hidden;
     white-space: nowrap;
     animation: slideAndReturn 5s; /* Animation répétée */
-    width: 50%; /* Limite la longueur du texte */
-    text-align: center;
+   /* width: 50%; /* Limite la longueur du texte */
+   /* text-align: center;
     opacity: 0.8;
     font-weight: bold;
-}
-
-@keyframes slideAndReturn {
-    0% {
-        transform: translateX(-100vw); /* Démarre hors de l'écran à gauche */
-        filter: blur(2px); /* Flou en début d'animation */
-    }
-    50% {
-        transform: translateX(100vw); /* Défile vers la droite, hors de l'écran */
-        filter: blur(1px); /* Applique un flou pendant le défilement */
-    }
-    75% {
-        transform: translateX(0); /* Retour au centre */
-        filter: blur(0.5px); /* Retire le flou au centre */
-    }
-    100% {
-        transform: translateX(0); /* Reste au centre */
-        filter: blur(0px); /* Retire le flou au centre */
-    }
-}
+}*/
