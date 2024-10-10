@@ -86,16 +86,3 @@ body {
     font-size: 1em;
     font-weight: bold;
 }
-/*
-.matrix-copy {
-    font-size: 1em;
-    margin-bottom: 50px;
-    color: #910000;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: slideAndReturn 5s; /* Animation répétée */
-   /* width: 50%; /* Limite la longueur du texte */
-   /* text-align: center;
-    opacity: 0.8;
-    font-weight: bold;
-}*/
