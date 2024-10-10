@@ -26,10 +26,10 @@ body {
 .matrix-title {
     font-size: 2.5em;
     margin-bottom: 50px;
-    color: #9b0000;
+    color: #84b5e4;
     overflow: hidden;
     white-space: nowrap;
-    border-right: .15em solid #9b0000;
+    border-right: .15em solid #2163a0;
     animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
 }
 
@@ -82,7 +82,7 @@ body {
     width: 100%;
     text-align: center;
     padding: 10px;
-    color: #9b0000;
+    color: #84b5e4;
     font-size: 1em;
     font-weight: bold;
 }
