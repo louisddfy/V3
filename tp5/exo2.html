@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,11 +11,8 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-items: flex-start;
             min-height: 100vh;
+            position: relative;
         }
 
         .block1,
@@ -29,31 +25,31 @@
             font-size: 18px;
             text-align: center;
             overflow: hidden;
-            margin: 10px;
+            position: absolute;
         }
 
         .block1 {
             background-color: #0206ff;
-           
             width: 220px;
             height: 200px;
-            float: left;
+            top: 20px;
+            left: 20px;
         }
 
         .block2 {
             background-color: #ff0000;
-        
             width: 170px;
             height: 200px;
-            float: right;
+            top: 20px;
+            right: 20px;
         }
 
         .block3 {
             background-color: #ffffff;
-    
             width: 220px;
             height: 200px;
-            clear: both;
+            bottom: 100px;
+            left: 20px;
         }
 
         img {
@@ -71,42 +67,26 @@
         /* Style du bouton retour */
         .back-button {
             background-color: #2f00ff;
-            /* Couleur du bouton */
             color: #ffffff;
-            /* Couleur du texte */
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
             text-decoration: none;
-            /* Supprimer le soulignement */
             margin: 20px 0;
-            /* Ajoute un espace autour du bouton */
             display: block;
-            /* Prend toute la largeur */
             width: 200px;
-            /* Largeur fixe pour le bouton */
             text-align: center;
-            /* Centre le texte */
             transition: background-color 0.3s;
-            /* Effet de transition */
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .back-button:hover {
             background-color: #f700ff;
-            /* Couleur au survol */
-        }
-
-        .button-container {
-            width: 100%;
-            /* Prend toute la largeur */
-            display: flex;
-            /* Utiliser flexbox */
-            justify-content: center;
-            /* Centre le bouton */
-            margin-top: 20px;
-            /* Espace au-dessus du bouton */
         }
     </style>
 </head>
@@ -122,12 +102,10 @@
 
     <div class="block3">
         <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/8/86/Paris_Saint-Germain_Logo.svg/2048px-Paris_Saint-Germain_Logo.svg.png"
-            alt="Logo du pg">
+            alt="Logo du psg">
     </div>
 
-    <div class="button-container">
-        <a href="index.html" class="back-button">Retour</a>
-    </div>
+    <a href="index.html" class="back-button">Retour</a>
 </body>
 
 </html>
