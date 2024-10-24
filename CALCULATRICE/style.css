@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.center {
+    text-align: center;
+    padding-top: 50px;
+}
+
+div {
+    margin-bottom: 15px;
+}
+
+input[type="number"],
+input[type="text"] {
+    width: 200px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+button {
+    background-color: #494d52;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 150px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #f0c63e;
+}
+
+.container-retour {
+    margin-bottom: 20px;
+}
