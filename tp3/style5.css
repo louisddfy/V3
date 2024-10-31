@@ -63,7 +63,7 @@ input[type="number"] {
 }
 
 .Retour {
-    background-color: #4CAF50; /* Vert */
+    background-color: #4CAF50; 
     color: white;
     padding: 12px 24px;
     text-align: center;
@@ -71,17 +71,14 @@ input[type="number"] {
     display: inline-block;
     font-size: 16px;
     margin: 10px 2px;
-    border-radius: 8px; /* Coins arrondis */
-    transition: background-color 0.3s ease;
+    border-radius: 8px; 
     border: none;
   }
   
   .Retour:hover {
-    background-color: #45a049; /* Couleur légèrement plus foncée au survol */
+    background-color: #45a049; 
   }
-  
   .Retour:active {
-    background-color: #368139; /* Couleur plus foncée lors du clic */
-    transform: translateY(2px); /* Effet de déplacement lors du clic */
+    background-color: #368139;
   }
   

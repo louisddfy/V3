@@ -2,7 +2,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #141414;
-    animation: backgroundAnimation 15s infinite alternate;
     font-family: 'Orbitron', sans-serif;
 }
 
@@ -10,7 +9,7 @@ body {
     width: 90%;
     margin: 0 auto;
     text-align: center;
-    color: #00ffcc; /* Assurez-vous que le texte est visible sur le fond */
+    color: #00ffcc; 
 }
 
 h1 {
@@ -18,8 +17,7 @@ h1 {
     margin-bottom: 20px;
     text-transform: uppercase;
     color: #00ffcc;
-    -webkit-text-stroke: 2px white; /* Contour blanc de 2 pixels pour les navigateurs WebKit */
-    text-overflow: 2px white; /* Contour standard */
+    text-overflow: 2px white; 
 }
 .certificates {
     display: flex;
@@ -30,7 +28,7 @@ h1 {
 
 .certificate {
     margin: 15px;
-    background-color: rgba(255, 255, 255, 0.8); /* Ajout d'un fond semi-transparent pour la lisibilité */
+    background-color: rgba(255, 255, 255, 0.8); 
     padding: 10px;
     border: 1px solid #ccc;
 }
@@ -46,12 +44,11 @@ h1 {
     color: #333;
 }
 
-/* Conteneur du bouton Retour */
 .container-retour {
     margin-top: 20px;
 }
 
-/* Bouton de retour */
+
 .Retour {
     display: inline-block;
     padding: 12px 25px;
@@ -60,24 +57,12 @@ h1 {
     text-decoration: none;
     font-size: 1.1em;
     border-radius: 50px;
-    transition: all 0.3s ease;
     font-weight: bold;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Effet de survol pour le bouton de retour */
+
 .Retour:hover {
     background-color: #e67e22;
-    transform: translateY(-15px);
-    box-shadow: 0 12px 20px rgba(255, 136, 0, 0.8);
-}
-
-/* Animation de fond */
-@keyframes backgroundAnimation {
-    0% {
-        filter: hue-rotate(0deg);
-    }
-    100% {
-        filter: hue-rotate(360deg);
-    }
+    transform: translateY(-5px);
 }
