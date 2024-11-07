@@ -1,5 +1,3 @@
-
-
 function Calcul() {
     var prix1 = document.getElementById("prix1").value;
     var quantité1 = document.getElementById("quantité1").value;
