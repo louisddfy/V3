@@ -1,4 +1,4 @@
-/* BILGER-BAVEREL Axel */
+
 
 function Calcul() {
     var prix1 = document.getElementById("prix1").value;
