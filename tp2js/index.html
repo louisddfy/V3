@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facture en JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Facture en Javascript</h1>
+        <div class="table">
+            <div class="ligne">
+                <div class="case">Article</div>
+                <div class="case">Prix</div>
+                <div class="case">Quantité</div>
+                <div class="case">Résultat</div>
+                
+            </div>
+            <div class="ligne">
+                <input class="case" type="text" id="article1" placeholder="Nom de l'article">
+                <input class="case" type="number" id="prix1" placeholder="Prix">
+                <input class="case" type="number" id="quantité1" placeholder="Quantité">
+                <input class="case" type="text" id="result1" placeholder="0">
+            </div>
+            <div class="ligne">
+                <input class="case" type="text" id="article2" placeholder="Nom de l'article">
+                <input class="case" type="number" id="prix2" placeholder="Prix">
+                <input class="case" type="number" id="quantité2" placeholder="Quantité">
+                <input class="case" type="text" id="result2" placeholder="0">
+            </div>
+            <div class="ligne">
+                <input class="case" type="text" id="article3" placeholder="Nom de l'article">
+                <input class="case" type="number" id="prix3" placeholder="Prix">
+                <input class="case" type="number" id="quantité3" placeholder="Quantité">
+                <input class="case" type="text" id="result3" placeholder="0">
+            </div>
+            <div class="ligne">
+                <input class="case total" type="text" id="totalResult" placeholder="0" readonly>
+            </div>
+            <div class="ligne">
+                <button onclick="reset()" class="case button">Réinitialiser</button>
+                <button onclick="Calcul()" class="case button">Résultat</button>
+            </div>
+            
+        </div>
+        <br>
+        <button class="case button"><a href="../index.html">Retour</a></button>
+    </div>
+</body>
+</html>
