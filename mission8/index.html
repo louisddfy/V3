@@ -1,448 +1,523 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banque d'Exercices JavaScript</title>
+    <title>15 Exercices JavaScript Interactifs</title>
     <style>
-        /* Global Styles */
-        * {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            background-color: #f0f4f8;
-            color: #333;
-            padding: 20px;
-        }
-
-        /* Header Styles */
-        header {
+            color: white;
             text-align: center;
-            padding: 30px;
-            background: linear-gradient(135deg, #4e54c8, #8f94fb);
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-color: #222;
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: #d1d1d6;
-        }
-
-        /* Main Section */
-        main {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .exercise {
-            background-color: #ffffff;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            position: relative;
-        }
-
-        .exercise:hover {
-            transform: translateY(-1px);
-        }
-
-        .exercise h2 {
-            font-size: 1.8rem;
-            color: #4e54c8;
-            margin-bottom: 10px;
-        }
-
-        .exercise p {
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        .exercise button {
-            padding: 10px 15px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-            margin-right: 10px;
-        }
-
-        .solution-btn {
-            background-color: #4e54c8;
-            color: #fff;
-        }
-
-        .solution-btn:hover {
-            background-color: #434190;
-            transform: scale(1.05);
-        }
-
-        .demo-btn {
-            background-color: #8f94fb;
-            color: #fff;
-        }
-
-        .demo-btn:hover {
-            background-color: #757be8;
-            transform: scale(1.05);
-        }
-
-        .return-btn {
-            background-color: #007bff;
-            color: #fff;
-            display: block;
-            margin: 20px auto;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .return-btn:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
-
-        /* Modal Styles */
-        .modal {
+        video {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
+            object-fit: cover;
+            z-index: -1;
         }
 
-        .modal-content {
-            background-color: #ffffff;
+        .content {
+            position: relative;
+            z-index: 1;
             padding: 20px;
-            border-radius: 15px;
-            width: 80%;
-            max-width: 500px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            text-align: center;
+            background-color: rgba(0, 0, 0, 0.8);
         }
 
-        .modal-content h3 {
-            color: #4e54c8;
-            margin-bottom: 15px;
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
         }
 
-        .modal-content pre {
-            background: #f0f4f8;
-            color: #333;
-            padding: 10px;
-            border-radius: 8px;
-            white-space: pre-wrap;
-            word-wrap: break-word;
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #444;
             text-align: left;
-            overflow: auto;
         }
 
-        .close-btn {
-            background-color: #28a745;
-            color: white;
-            border: none;
+        button {
+            margin: 5px;
             padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 8px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            border-radius: 5px;
             cursor: pointer;
-            margin-top: 15px;
-            transition: background-color 0.3s ease;
         }
 
-        .close-btn:hover {
-            background-color: #218838;
+        button:hover {
+            background-color: #0056b3;
         }
-        .editor {
-    background: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
 
-.editor h2 {
-    color: #4e54c8;
-    margin-bottom: 10px;
-}
-
-#code-editor {
-    width: 100%;
-    height: 150px;
-    font-family: monospace;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    resize: none;
-}
-
-#run-code {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 15px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#run-code:hover {
-    background-color: #218838;
-}
-
-#output {
-    margin-top: 15px;
-    padding: 10px;
-    background: #f0f4f8;
-    border-radius: 8px;
-    font-family: monospace;
-    white-space: pre-wrap;
-}
+        .code-box {
+            background-color: #333;
+            color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 10px;
+            display: none;
+            text-align: left;
+        }
     </style>
 </head>
-
 <body>
-    <header>
-        <h1>Banque d'Exercices JavaScript</h1>
-        <p>Améliorez vos compétences en résolvant des exercices pratiques !</p>
-    </header>
-    <main>
-        <!-- Dynamic Exercises -->
-        <div class="exercise">
-            <h2>1. Somme</h2>
-            <p>Écrire une fonction qui prend deux nombres en entrée et retourne leur somme.</p>
-            <div class="editor">
-                <h2>Zone d'écriture</h2>
-                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
-                <button id="run-code">Exécuter</button>
-                <div id="output"></div>
-            </div>
-            <button class="solution-btn">Voir la solution</button>
-            <button class="demo-btn">Voir la démonstration</button>
-        </div>
-        <div class="exercise">
-            <h2>2. Afficher 1..10</h2>
-            <p>Écrire une fonction qui affiche les nombres de 1 à 10 dans la console.</p>
-            <div class="editor">
-                <h2>Zone d'écriture</h2>
-                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
-                <button id="run-code">Exécuter</button>
-                <div id="output"></div>
-            </div>
-            <button class="solution-btn">Voir la solution</button>
-            <button class="demo-btn">Voir la démonstration</button>
-        </div>
-        <div class="exercise">
-            <h2>3. Plus grand nombre</h2>
-            <p>Écrire une fonction qui retourne le plus grand entre deux nombres donnés.</p>
-            <div class="editor">
-                <h2>Zone d'écriture</h2>
-                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
-                <button id="run-code">Exécuter</button>
-                <div id="output"></div>
-            </div>
-            <button class="solution-btn">Voir la solution</button>
-            <button class="demo-btn">Voir la démonstration</button>
-        </div>
-        <div class="exercise">
-            <h2>4. Factorielle</h2>
-            <p>Écrire une fonction qui calcule la factorielle d'un nombre donné.</p>
-            <div class="editor">
-                <h2>Zone d'écriture</h2>
-                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
-                <button id="run-code">Exécuter</button>
-                <div id="output"></div>
-            </div>
-            <button class="solution-btn">Voir la solution</button>
-            <button class="demo-btn">Voir la démonstration</button>
-        </div>
-        <div class="exercise">
-            <h2>5. Palindrome</h2>
-            <p>Écrire une fonction qui vérifie si une chaîne de caractères est un palindrome.</p>
-            <div class="editor">
-                <h2>Zone d'écriture</h2>
-                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
-                <button id="run-code">Exécuter</button>
-                <div id="output"></div>
-            </div>
-            <button class="solution-btn">Voir la solution</button>
-            <button class="demo-btn">Voir la démonstration</button>
-        </div>
-        <div class="exercise">
-            <h2>6. Compter les voyelles</h2>
-            <p>Écrire une fonction qui compte le nombre de voyelles dans une chaîne.</p>
-            <div class="editor">
-                <h2>Zone d'écriture</h2>
-                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
-                <button id="run-code">Exécuter</button>
-                <div id="output"></div>
-            </div>
-            <button class="solution-btn">Voir la solution</button>
-            <button class="demo-btn">Voir la démonstration</button>
-        </div>
-        <div class="exercise">
-            <h2>7. Tri d'un tableau</h2>
-            <p>Écrire une fonction qui trie un tableau d'entiers dans l'ordre croissant.</p>
-            <div class="editor">
-                <h2>Zone d'écriture</h2>
-                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
-                <button id="run-code">Exécuter</button>
-                <div id="output"></div>
-            </div>
-            <button class="solution-btn">Voir la solution</button>
-            <button class="demo-btn">Voir la démonstration</button>
-        </div>
-        <div class="exercise">
-            <h2>8. FizzBuzz</h2>
-            <p>Écrire une fonction qui affiche les nombres de 1 à 100 avec les règles de FizzBuzz.</p>
-            <div class="editor">
-                <h2>Zone d'écriture</h2>
-                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
-                <button id="run-code">Exécuter</button>
-                <div id="output"></div>
-            </div>
-            <button class="solution-btn">Voir la solution</button>
-            <button class="demo-btn">Voir la démonstration</button>
-        </div>
-        <div class="exercise">
-            <h2>9. Fibonacci</h2>
-            <p>Écrire une fonction qui génère les n premiers termes de la suite de Fibonacci.</p>
-            <div class="editor">
-                <h2>Zone d'écriture</h2>
-                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
-                <button id="run-code">Exécuter</button>
-                <div id="output"></div>
-            </div>
-            <button class="solution-btn">Voir la solution</button>
-            <button class="demo-btn">Voir la démonstration</button>
-        </div>
-        <div class="exercise">
-            <h2>10. Éléments uniques</h2>
-            <p>Écrire une fonction qui retourne les éléments uniques d'un tableau.</p>
-            <div class="editor">
-                <h2>Zone d'écriture</h2>
-                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
-                <button id="run-code">Exécuter</button>
-                <div id="output"></div>
-            </div>
-            <button class="solution-btn">Voir la solution</button>
-            <button class="demo-btn">Voir la démonstration</button>
-        </div>
-        <button class="return-btn" onclick="window.location.href='../index.html'">Retour à la page d'accueil</button>
-    </main>
 
-    <!-- Modal -->
-    <div class="modal" id="modal" style="display: none;">
-        <div class="modal-content">
-            <h3 id="modal-title"></h3>
-            <pre id="modal-content"></pre>
-            <button class="close-btn" id="close-btn">Fermer</button>
-        </div>
-    </div>
+<video id="background-video" autoplay muted loop>
+    <source src="A.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la balise vidéo.
+</video>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const exerciseData = [
-                { title: "1. Somme", solution: `function somme(a, b) { return a + b; }`, demo: "somme(5, 3) = 8" },
-                { title: "2. Afficher 1..10", solution: `function afficher() { for (let i = 1; i <= 10; i++) { console.log(i); } }`, demo: "Résultat dans la console." },
-                { title: "3. Plus grand nombre", solution: `function max(a, b) { return a > b ? a : b; }`, demo: "max(7, 3) = 7" },
-                { title: "4. Factorielle", solution: `function factorielle(n) { if (n === 0) return 1; return n * factorielle(n - 1); }`, demo: "factorielle(5) = 120" },
-                { title: "5. Palindrome", solution: `function estPalindrome(str) { return str === str.split('').reverse().join(''); }`, demo: "estPalindrome('radar') = true" },
-                { title: "6. Compter les voyelles", solution: `function compterVoyelles(str) { return str.match(/[aeiou]/gi).length; }`, demo: "compterVoyelles('bonjour') = 3" },
-                { title: "7. Tri d'un tableau", solution: `function trierTableau(arr) { return arr.sort((a, b) => a - b); }`, demo: "trierTableau([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]) = [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]" },
-                { title: "8. FizzBuzz", solution: `function fizzBuzz() { for (let i = 1; i <= 100; i++) { if (i % 15 === 0) console.log('FizzBuzz'); else if (i % 3 === 0) console.log('Fizz'); else if (i % 5 === 0) console.log('Buzz'); else console.log(i); } }`, demo: "Résultat dans la console." },
-                { title: "9. Fibonacci", solution: `function fibonacci(n) { let fib = [0, 1]; for (let i = 2; i < n; i++) { fib[i] = fib[i - 1] + fib[i - 2]; } return fib; }`, demo: "fibonacci(10) = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]" },
-                { title: "10. Éléments uniques", solution: `function elementsUniques(arr) { return [...new Set(arr)]; }`, demo: "elementsUniques([1, 2, 2, 3, 4, 4, 5]) = [1, 2, 3, 4, 5]" }
-            ];
+<div class="content">
+    <h1>15 Exercices JavaScript Interactifs</h1>
+    <table>
+        <tr>
+            <th>Exercice</th>
+            <th>Actions</th>
+        </tr>
 
-            function showModal(title, content) {
-                const modal = document.getElementById('modal');
-                const modalTitle = document.getElementById('modal-title');
-                const modalContent = document.getElementById('modal-content');
-                modalTitle.textContent = title;
-                modalContent.textContent = content;
-                modal.style.display = 'flex';
-            }
+        <!-- Exercice 1 -->
+        <tr>
+            <td>1. Convertir Celsius en Fahrenheit</td>
+            <td>
+                <button onclick="convertirTemperature()">Vérifier</button>
+                <button onclick="afficherCode('code1')">Afficher le code</button>
+                <div id="code1" class="code-box">
+<pre>
+function convertirTemperature() {
+    const celsius = prompt("Entrez la température en °C :");
+    const fahrenheit = (celsius * 9 / 5) + 32;
+    alert(`${celsius}°C = ${fahrenheit}°F`);
+}
+</pre>
+                </div>
+            </td>
+        </tr>
 
-            function closeModal() {
-                const modal = document.getElementById('modal');
-                modal.style.display = 'none';
-            }
+        <!-- Exercice 2 -->
+        <tr>
+            <td>2. Ajuster la taille du texte</td>
+            <td>
+                <p id="texte">Ceci est un texte ajustable.</p>
+                <button onclick="augmenterTaille()">Augmenter</button>
+                <button onclick="reduireTaille()">Réduire</button>
+                <button onclick="afficherCode('code2')">Afficher le code</button>
+                <div id="code2" class="code-box">
+<pre>
+function augmenterTaille() {
+    let texte = document.getElementById('texte');
+    let taille = parseInt(window.getComputedStyle(texte).fontSize);
+    texte.style.fontSize = (taille + 2) + 'px';
+}
 
-            const exercises = document.querySelectorAll(".exercise");
-            exercises.forEach((exercise, index) => {
-                const solutionBtn = exercise.querySelector('.solution-btn');
-                const demoBtn = exercise.querySelector('.demo-btn');
+function reduireTaille() {
+    let texte = document.getElementById('texte');
+    let taille = parseInt(window.getComputedStyle(texte).fontSize);
+    texte.style.fontSize = (taille - 2) + 'px';
+}
+</pre>
+                </div>
+            </td>
+        </tr>
 
-                solutionBtn.addEventListener('click', () => {
-                    showModal(exerciseData[index].title, exerciseData[index].solution);
-                });
+        <!-- Exercice 3 -->
+        <tr>
+            <td>3. Compter le nombre de clics</td>
+            <td>
+                <p id="compteur">0</p>
+                <button onclick="incrementer()">Incrémenter</button>
+                <button onclick="afficherCode('code3')">Afficher le code</button>
+                <div id="code3" class="code-box">
+<pre>
+function incrementer() {
+    let compteur = parseInt(document.getElementById('compteur').textContent);
+    document.getElementById('compteur').textContent = compteur + 1;
+}
+</pre>
+                </div>
+            </td>
+        </tr>
 
-                demoBtn.addEventListener('click', () => {
-                    showModal(exerciseData[index].title, exerciseData[index].demo);
-                });
-            });
+        <!-- Exercice 4 -->
+        <tr>
+            <td>4. Salutation selon l'heure</td>
+            <td>
+                <button onclick="saluer()">Afficher</button>
+                <button onclick="afficherCode('code4')">Afficher le code</button>
+                <div id="code4" class="code-box">
+<pre>
+function saluer() {
+    const heure = new Date().getHours();
+    if (heure < 12) alert("Bonjour");
+    else if (heure < 18) alert("Bon après-midi");
+    else alert("Bonsoir");
+}
+</pre>
+                </div>
+            </td>
+        </tr>
 
-            document.getElementById('close-btn').addEventListener('click', closeModal);
-        });
-        document.getElementById("run-code").addEventListener("click", function () {
-    const code = document.getElementById("code-editor").value;
-    const outputDiv = document.getElementById("output");
+        <!-- Exercice 5 -->
+        <tr>
+            <td>5. Calculer l'âge</td>
+            <td>
+                <button onclick="calculerAge()">Calculer</button>
+                <button onclick="afficherCode('code5')">Afficher le code</button>
+                <div id="code5" class="code-box">
+<pre>
+function calculerAge() {
+    const anneeNaissance = prompt("Entrez votre année de naissance :");
+    const anneeActuelle = new Date().getFullYear();
+    alert(`Votre âge est : ${anneeActuelle - anneeNaissance}`);
+}
+</pre>
+                </div>
+            </td>
+        </tr>
 
-    try {
-        let result = eval(code);
-        outputDiv.textContent = result !== undefined ? result : "Code exécuté sans retour.";
-    } catch (error) {
-        outputDiv.textContent = "Erreur : " + error.message;
+        <!-- Exercice 6 -->
+        <tr>
+            <td>6. Trouver le nombre maximum</td>
+            <td>
+                <button onclick="trouverMax()">Trouver</button>
+                <button onclick="afficherCode('code6')">Afficher le code</button>
+                <div id="code6" class="code-box">
+<pre>
+function trouverMax() {
+    const nombres = prompt("Entrez des nombres séparés par des virgules :").split(",");
+    const max = Math.max(...nombres.map(Number));
+    alert(`Le nombre maximum est : ${max}`);
+}
+</pre>
+                </div>
+            </td>
+        </tr>
+
+        <!-- Exercice 7 -->
+        <tr>
+            <td>7. Compter les voyelles</td>
+            <td>
+                <button onclick="compterVoyelles()">Compter</button>
+                <button onclick="afficherCode('code7')">Afficher le code</button>
+                <div id="code7" class="code-box">
+<pre>
+function compterVoyelles() {
+    const texte = prompt("Entrez un texte :").toLowerCase();
+    const voyelles = texte.match(/[aeiouy]/g);
+    alert(`Nombre de voyelles : ${voyelles ? voyelles.length : 0}`);
+}
+</pre>
+                </div>
+            </td>
+        </tr>
+
+        <!-- Exercice 8 -->
+        <tr>
+            <td>8. Calculer le pourboire</td>
+            <td>
+                <button onclick="calculerPourboire()">Calculer</button>
+                <button onclick="afficherCode('code8')">Afficher le code</button>
+                <div id="code8" class="code-box">
+<pre>
+function calculerPourboire() {
+    const montant = parseFloat(prompt("Entrez le montant de l'addition (€):"));
+    const pourboire = (montant * 0.15).toFixed(2);
+    alert(`Le pourboire recommandé est : ${pourboire} €`);
+}
+</pre>
+                </div>
+            </td>
+        </tr>
+
+        <!-- Exercice 9 -->
+        <tr>
+            <td>9. Vérifier si un nombre est pair ou impair</td>
+            <td>
+                <button onclick="verifierPairImpair()">Vérifier</button>
+                <button onclick="afficherCode('code9')">Afficher le code</button>
+                <div id="code9" class="code-box">
+<pre>
+function verifierPairImpair() {
+    const nombre = parseInt(prompt("Entrez un nombre:"));
+    const resultat = nombre % 2 === 0 ? "pair" : "impair";
+    alert(`Le nombre ${nombre} est ${resultat}.`);
+}
+</pre>
+                </div>
+            </td>
+        </tr>
+
+        <!-- Exercice 10 -->
+        <tr>
+            <td>10. Calculer les calories brûlées</td>
+            <td>
+                <button onclick="calculerCalories()">Calculer</button>
+                <button onclick="afficherCode('code10')">Afficher le code</button>
+                <div id="code10" class="code-box">
+<pre>
+function calculerCalories() {
+    const poids = parseFloat(prompt("Entrez votre poids (kg) :"));
+    const temps = parseFloat(prompt("Entrez le temps de course (minutes) :"));
+    const calories = (poids * 0.063) * temps;
+    alert(`Vous avez brûlé environ ${calories.toFixed(2)} calories.`);
+}
+</pre>
+                </div>
+            </td>
+        </tr>
+
+        <!-- Exercice 11 -->
+        <tr>
+            <td>11. Calculer le périmètre d'un rectangle</td>
+            <td>
+                <button onclick="calculerPerimetre()">Calculer</button>
+                <button onclick="afficherCode('code11')">Afficher le code</button>
+                <div id="code11" class="code-box">
+<pre>
+function calculerPerimetre() {
+    const longueur = parseFloat(prompt("Entrez la longueur du rectangle (cm) :"));
+    const largeur = parseFloat(prompt("Entrez la largeur du rectangle (cm) :"));
+    const perimetre = 2 * (longueur + largeur);
+    alert(`Le périmètre du rectangle est : ${perimetre} cm`);
+}
+</pre>
+                </div>
+            </td>
+        </tr>
+
+        <!-- Exercice 12 -->
+        <tr>
+            <td>12. Créer un tableau dynamique</td>
+            <td>
+                <button onclick="creerTableau()">Créer</button>
+                <button onclick="afficherCode('code12')">Afficher le code</button>
+                <div id="code12" class="code-box">
+<pre>
+function creerTableau() {
+    const taille = parseInt(prompt("Entrez la taille du tableau :"));
+    const tableau = [];
+    for (let i = 0; i < taille; i++) {
+        tableau.push(prompt(`Entrez l'élément ${i+1}:`));
     }
-});
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".exercise").forEach((exercise) => {
-        const runButton = exercise.querySelector(".editor button");
-        const codeEditor = exercise.querySelector(".editor textarea");
-        const outputDiv = exercise.querySelector(".editor #output");
+    alert(`Tableau créé: ${tableau.join(', ')}`);
+}
+</pre>
+                </div>
+            </td>
+        </tr>
 
-        runButton.addEventListener("click", () => {
-            try {
-                let code = `(function() { ${codeEditor.value} })()`;
-                let result = eval(code);
-                outputDiv.textContent = result !== undefined ? result : "Code exécuté sans retour.";
-            } catch (error) {
-                outputDiv.textContent = "Erreur : " + error.message;
+        <!-- Exercice 13 -->
+        <tr>
+            <td>13. Vérifier si un mot est un palindrome</td>
+            <td>
+                <button onclick="verifierPalindrome()">Vérifier</button>
+                <button onclick="afficherCode('code13')">Afficher le code</button>
+                <div id="code13" class="code-box">
+<pre>
+function verifierPalindrome() {
+    const mot = prompt("Entrez un mot :");
+    const motInverse = mot.split('').reverse().join('');
+    alert(mot === motInverse ? "Le mot est un palindrome." : "Le mot n'est pas un palindrome.");
+}
+</pre>
+                </div>
+            </td>
+        </tr>
+
+        <!-- Exercice 14 -->
+        <tr>
+            <td>14. Convertir un nombre en binaire</td>
+            <td>
+                <button onclick="convertirBinaire()">Convertir</button>
+                <button onclick="afficherCode('code14')">Afficher le code</button>
+                <div id="code14" class="code-box">
+<pre>
+function convertirBinaire() {
+    const nombre = parseInt(prompt("Entrez un nombre :"));
+    alert(`Le nombre ${nombre} en binaire est : ${nombre.toString(2)}`);
+}
+</pre>
+                </div>
+            </td>
+        </tr>
+
+        <!-- Exercice 15 -->
+        <tr>
+            <td>15. Animer un élément</td>
+            <td>
+                <button onclick="animerElement()">Animer</button>
+                <button onclick="afficherCode('code15')">Afficher le code</button>
+                <div id="code15" class="code-box">
+<pre>
+function animerElement() {
+    let elem = document.createElement('div');
+    elem.textContent = "Je suis animé!";
+    elem.style.position = "absolute";
+    elem.style.left = "0px";
+    elem.style.top = "0px";
+    elem.style.backgroundColor = "red";
+    elem.style.padding = "10px";
+    document.body.appendChild(elem);
+
+    let posX = 0;
+    let posY = 0;
+    function deplacer() {
+        if (posX < window.innerWidth - 100) {
+            posX += 5;
+            posY += 3;
+            elem.style.left = posX + "px";
+            elem.style.top = posY + "px";
+            requestAnimationFrame(deplacer);
+        }
+    }
+    deplacer();
+}
+</pre>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+<script>
+    function afficherCode(id) {
+        const codeBox = document.getElementById(id);
+        codeBox.style.display = codeBox.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function convertirTemperature() {
+        const celsius = prompt("Entrez la température en °C :");
+        const fahrenheit = (celsius * 9 / 5) + 32;
+        alert(`${celsius}°C = ${fahrenheit}°F`);
+    }
+
+    function augmenterTaille() {
+        let texte = document.getElementById('texte');
+        let taille = parseInt(window.getComputedStyle(texte).fontSize);
+        texte.style.fontSize = (taille + 2) + 'px';
+    }
+
+    function reduireTaille() {
+        let texte = document.getElementById('texte');
+        let taille = parseInt(window.getComputedStyle(texte).fontSize);
+        texte.style.fontSize = (taille - 2) + 'px';
+    }
+
+    function incrementer() {
+        let compteur = parseInt(document.getElementById('compteur').textContent);
+        document.getElementById('compteur').textContent = compteur + 1;
+    }
+
+    function saluer() {
+        const heure = new Date().getHours();
+        if (heure < 12) alert("Bonjour");
+        else if (heure < 18) alert("Bon après-midi");
+        else alert("Bonsoir");
+    }
+
+    function calculerAge() {
+        const anneeNaissance = prompt("Entrez votre année de naissance :");
+        const anneeActuelle = new Date().getFullYear();
+        alert(`Votre âge est : ${anneeActuelle - anneeNaissance}`);
+    }
+
+    function trouverMax() {
+        const nombres = prompt("Entrez des nombres séparés par des virgules :").split(",");
+        const max = Math.max(...nombres.map(Number));
+        alert(`Le nombre maximum est : ${max}`);
+    }
+
+    function compterVoyelles() {
+        const texte = prompt("Entrez un texte :").toLowerCase();
+        const voyelles = texte.match(/[aeiouy]/g);
+        alert(`Nombre de voyelles : ${voyelles ? voyelles.length : 0}`);
+    }
+
+    function calculerPourboire() {
+        const montant = parseFloat(prompt("Entrez le montant de l'addition (€):"));
+        const pourboire = (montant * 0.15).toFixed(2);
+        alert(`Le pourboire recommandé est : ${pourboire} €`);
+    }
+
+    function verifierPairImpair() {
+        const nombre = parseInt(prompt("Entrez un nombre:"));
+        const resultat = nombre % 2 === 0 ? "pair" : "impair";
+        alert(`Le nombre ${nombre} est ${resultat}.`);
+    }
+
+    function calculerCalories() {
+        const poids = parseFloat(prompt("Entrez votre poids (kg) :"));
+        const temps = parseFloat(prompt("Entrez le temps de course (minutes) :"));
+        const calories = (poids * 0.063) * temps;
+        alert(`Vous avez brûlé environ ${calories.toFixed(2)} calories.`);
+    }
+
+    function calculerPerimetre() {
+        const longueur = parseFloat(prompt("Entrez la longueur du rectangle (cm) :"));
+        const largeur = parseFloat(prompt("Entrez la largeur du rectangle (cm) :"));
+        const perimetre = 2 * (longueur + largeur);
+        alert(`Le périmètre du rectangle est : ${perimetre} cm`);
+    }
+
+    function creerTableau() {
+        const taille = parseInt(prompt("Entrez la taille du tableau :"));
+        const tableau = [];
+        for (let i = 0; i < taille; i++) {
+            tableau.push(prompt(`Entrez l'élément ${i+1}:`));
+        }
+        alert(`Tableau créé: ${tableau.join(', ')}`);
+    }
+
+    function verifierPalindrome() {
+        const mot = prompt("Entrez un mot :");
+        const motInverse = mot.split('').reverse().join('');
+        alert(mot === motInverse ? "Le mot est un palindrome." : "Le mot n'est pas un palindrome.");
+    }
+
+    function convertirBinaire() {
+        const nombre = parseInt(prompt("Entrez un nombre :"));
+        alert(`Le nombre ${nombre} en binaire est : ${nombre.toString(2)}`);
+    }
+
+    function animerElement() {
+        let elem = document.createElement('div');
+        elem.textContent = "Je suis animé!";
+        elem.style.position = "absolute";
+        elem.style.left = "0px";
+        elem.style.top = "0px";
+        elem.style.backgroundColor = "red";
+        elem.style.padding = "10px";
+        document.body.appendChild(elem);
+
+        let posX = 0;
+        let posY = 0;
+        function deplacer() {
+            if (posX < window.innerWidth - 100) {
+                posX += 5;
+                posY += 3;
+                elem.style.left = posX + "px";
+                elem.style.top = posY + "px";
+                requestAnimationFrame(deplacer);
             }
-        });
-    });
-});
+        }
+        deplacer();
+    }
+</script>
 
-
-    </script>
 </body>
-
 </html>
