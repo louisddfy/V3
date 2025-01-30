@@ -179,6 +179,52 @@
         .close-btn:hover {
             background-color: #218838;
         }
+        .editor {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.editor h2 {
+    color: #4e54c8;
+    margin-bottom: 10px;
+}
+
+#code-editor {
+    width: 100%;
+    height: 150px;
+    font-family: monospace;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    resize: none;
+}
+
+#run-code {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#run-code:hover {
+    background-color: #218838;
+}
+
+#output {
+    margin-top: 15px;
+    padding: 10px;
+    background: #f0f4f8;
+    border-radius: 8px;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
     </style>
 </head>
 
@@ -192,60 +238,120 @@
         <div class="exercise">
             <h2>1. Somme</h2>
             <p>Écrire une fonction qui prend deux nombres en entrée et retourne leur somme.</p>
+            <div class="editor">
+                <h2>Zone d'écriture</h2>
+                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
+                <button id="run-code">Exécuter</button>
+                <div id="output"></div>
+            </div>
             <button class="solution-btn">Voir la solution</button>
             <button class="demo-btn">Voir la démonstration</button>
         </div>
         <div class="exercise">
             <h2>2. Afficher 1..10</h2>
             <p>Écrire une fonction qui affiche les nombres de 1 à 10 dans la console.</p>
+            <div class="editor">
+                <h2>Zone d'écriture</h2>
+                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
+                <button id="run-code">Exécuter</button>
+                <div id="output"></div>
+            </div>
             <button class="solution-btn">Voir la solution</button>
             <button class="demo-btn">Voir la démonstration</button>
         </div>
         <div class="exercise">
             <h2>3. Plus grand nombre</h2>
             <p>Écrire une fonction qui retourne le plus grand entre deux nombres donnés.</p>
+            <div class="editor">
+                <h2>Zone d'écriture</h2>
+                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
+                <button id="run-code">Exécuter</button>
+                <div id="output"></div>
+            </div>
             <button class="solution-btn">Voir la solution</button>
             <button class="demo-btn">Voir la démonstration</button>
         </div>
         <div class="exercise">
             <h2>4. Factorielle</h2>
             <p>Écrire une fonction qui calcule la factorielle d'un nombre donné.</p>
+            <div class="editor">
+                <h2>Zone d'écriture</h2>
+                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
+                <button id="run-code">Exécuter</button>
+                <div id="output"></div>
+            </div>
             <button class="solution-btn">Voir la solution</button>
             <button class="demo-btn">Voir la démonstration</button>
         </div>
         <div class="exercise">
             <h2>5. Palindrome</h2>
             <p>Écrire une fonction qui vérifie si une chaîne de caractères est un palindrome.</p>
+            <div class="editor">
+                <h2>Zone d'écriture</h2>
+                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
+                <button id="run-code">Exécuter</button>
+                <div id="output"></div>
+            </div>
             <button class="solution-btn">Voir la solution</button>
             <button class="demo-btn">Voir la démonstration</button>
         </div>
         <div class="exercise">
             <h2>6. Compter les voyelles</h2>
             <p>Écrire une fonction qui compte le nombre de voyelles dans une chaîne.</p>
+            <div class="editor">
+                <h2>Zone d'écriture</h2>
+                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
+                <button id="run-code">Exécuter</button>
+                <div id="output"></div>
+            </div>
             <button class="solution-btn">Voir la solution</button>
             <button class="demo-btn">Voir la démonstration</button>
         </div>
         <div class="exercise">
             <h2>7. Tri d'un tableau</h2>
             <p>Écrire une fonction qui trie un tableau d'entiers dans l'ordre croissant.</p>
+            <div class="editor">
+                <h2>Zone d'écriture</h2>
+                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
+                <button id="run-code">Exécuter</button>
+                <div id="output"></div>
+            </div>
             <button class="solution-btn">Voir la solution</button>
             <button class="demo-btn">Voir la démonstration</button>
         </div>
         <div class="exercise">
             <h2>8. FizzBuzz</h2>
             <p>Écrire une fonction qui affiche les nombres de 1 à 100 avec les règles de FizzBuzz.</p>
+            <div class="editor">
+                <h2>Zone d'écriture</h2>
+                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
+                <button id="run-code">Exécuter</button>
+                <div id="output"></div>
+            </div>
             <button class="solution-btn">Voir la solution</button>
             <button class="demo-btn">Voir la démonstration</button>
         </div>
         <div class="exercise">
             <h2>9. Fibonacci</h2>
             <p>Écrire une fonction qui génère les n premiers termes de la suite de Fibonacci.</p>
+            <div class="editor">
+                <h2>Zone d'écriture</h2>
+                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
+                <button id="run-code">Exécuter</button>
+                <div id="output"></div>
+            </div>
             <button class="solution-btn">Voir la solution</button>
             <button class="demo-btn">Voir la démonstration</button>
         </div>
         <div class="exercise">
             <h2>10. Éléments uniques</h2>
             <p>Écrire une fonction qui retourne les éléments uniques d'un tableau.</p>
+            <div class="editor">
+                <h2>Zone d'écriture</h2>
+                <textarea id="code-editor" placeholder="Écris ton code JavaScript ici..."></textarea>
+                <button id="run-code">Exécuter</button>
+                <div id="output"></div>
+            </div>
             <button class="solution-btn">Voir la solution</button>
             <button class="demo-btn">Voir la démonstration</button>
         </div>
@@ -306,6 +412,18 @@
 
             document.getElementById('close-btn').addEventListener('click', closeModal);
         });
+        document.getElementById("run-code").addEventListener("click", function () {
+    const code = document.getElementById("code-editor").value;
+    const outputDiv = document.getElementById("output");
+
+    try {
+        let result = eval(code);
+        outputDiv.textContent = result !== undefined ? result : "Code exécuté sans retour.";
+    } catch (error) {
+        outputDiv.textContent = "Erreur : " + error.message;
+    }
+});
+
     </script>
 </body>
 
