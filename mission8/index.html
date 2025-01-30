@@ -431,7 +431,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         runButton.addEventListener("click", () => {
             try {
-                let result = eval(codeEditor.value);
+                let code = `(function() { ${codeEditor.value} })()`;
+                let result = eval(code);
                 outputDiv.textContent = result !== undefined ? result : "Code exécuté sans retour.";
             } catch (error) {
                 outputDiv.textContent = "Erreur : " + error.message;
