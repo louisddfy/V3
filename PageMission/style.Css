@@ -27,7 +27,7 @@ body {
 .menu {
     display: flex;
     justify-content: space-around; /* Cette ligne est la plus importante */
-    gap: 20px; /* Ajuste cet espace comme tu le souhaites */
+    gap: 10px; /* Ajuste cet espace comme tu le souhaites */
 }
 
 .menu a {
