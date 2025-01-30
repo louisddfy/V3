@@ -1,20 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
 :root {
-    --primary-color: #66b3ff; /* Bleu clair */
-    --secondary-color: #3399ff; /* Bleu plus vif */
-    --background-light: #e6f2ff; /* Bleu très clair */
-    --text-color: #003366; /* Bleu foncé pour le texte */
-    --button-hover: #0080ff; /* Bleu plus foncé pour le bouton au survol */
-    --border-radius: 15px;
-    --shadow: 0px 4px 10px rgba(0, 128, 255, 0.2); /* Ombre bleue */
+    --primary-color: #007bff; /* Blue */
+    --secondary-color: #6c757d; /* Gray */
+    --background-light: #f8f9fa; /* Light Gray */
+    --text-color: #343a40; /* Dark Gray */
+    --border-color: #ced4da; /* Light Gray for borders */
+    --border-radius: 0px; /* Square corners */
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -24,61 +21,72 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    font-family: sans-serif; /* Use a professional font */
+    color: var(--text-color);
 }
 
 .facture-container {
     background: white;
     border-radius: var(--border-radius);
-    padding: 20px;
+    padding: 30px; /* Increased padding */
     box-shadow: var(--shadow);
     width: 80%;
     max-width: 900px;
     animation: fadeIn 1s ease-in-out;
-    display: flex;
-    flex-direction: column; /* Pour que les éléments soient disposés en colonne */
-    align-items: flex-end; /* Pour aligner les éléments horizontalement à droite */
 }
 
-/* En-tête */
+/* Header */
 .facture-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    border-bottom: 3px solid var(--primary-color);
-    padding-bottom: 15px;
-    margin-bottom: 15px;
+    align-items: flex-start; /* Align items to the top */
+    border-bottom: 1px solid var(--border-color); /* Lighter border */
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .facture-header h1 {
-    font-size: 24px;
-    color: var(--secondary-color);
+    font-size: 28px;
+    color: var(--primary-color);
     font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.facture-header p {
+    font-size: 14px;
+    color: var(--secondary-color);
 }
 
 .facture-header h2 {
-    font-size: 28px;
-    color: var(--primary-color);
+    font-size: 32px;
+    color: var(--text-color);
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-bottom: 5px;
 }
 
-/* Informations de facturation */
+/* Billing Information */
 .facture-infos {
     display: flex;
     justify-content: space-between;
-    background: var(--background-light);
-    padding: 15px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
     margin-bottom: 20px;
+}
+
+.facture-infos div {
+    width: 48%; /* Make the sections slightly smaller */
 }
 
 .facture-infos h3 {
     color: var(--secondary-color);
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
 }
 
-/* Table de facturation */
+.facture-infos p {
+    font-size: 16px;
+}
+
+/* Invoice Table */
 .facture-table {
     width: 100%;
     border-collapse: collapse;
@@ -86,29 +94,32 @@ body {
 }
 
 .facture-table th {
-    background: var(--primary-color);
-    color: white;
-    padding: 10px;
+    background: var(--background-light); /* Light header background */
+    color: var(--text-color);
+    padding: 12px;
     text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: normal; /* Normal font weight for headers */
 }
 
 .facture-table td {
-    padding: 10px;
-    border-bottom: 1px solid var(--primary-color);
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .facture-table input {
     width: 100%;
     padding: 8px;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    text-align: center;
+    text-align: left; /* Align text to the left */
+    font-size: 16px;
 }
 
-/* Boutons */
+/* Buttons */
 .facture-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* Align buttons to the right */
     gap: 10px;
     margin-bottom: 20px;
 }
@@ -121,38 +132,36 @@ body {
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: background 0.3s;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .facture-buttons button:hover {
-    background: var(--button-hover);
+    background: var(--primary-color); /* Keep the same color on hover */
+    opacity: 0.8; /* Slightly reduce opacity on hover */
 }
 
-/* Résumé total */
+/* Total Summary */
 .facture-total {
     background: var(--background-light);
-    padding: 15px;
+    padding: 20px;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
-    margin-top: 20px; /* Ajout d'une marge en haut pour l'espacement */
-    align-self: flex-end; /* Alignement à droite */
-    width: fit-content; /* Ajustement de la largeur au contenu */
+    width: fit-content;
+    margin-left: auto; /* Push the total to the right */
+}
+
+.facture-total p {
+    font-size: 16px;
+    margin-bottom: 5px;
 }
 
 .facture-total h3 {
-    color: var(--secondary-color);
-    font-size: 22px;
+    color: var(--primary-color);
+    font-size: 20px;
     margin-top: 10px;
 }
 
-/* Animation d'apparition */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Remove fadeIn animation */
+.facture-container {
+    animation: none;
 }
