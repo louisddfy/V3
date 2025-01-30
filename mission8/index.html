@@ -62,7 +62,7 @@
         }
 
         .exercise:hover {
-            transform: translateY(-5px);
+            transform: translateY(-1px);
         }
 
         .exercise h2 {
@@ -423,6 +423,21 @@
         outputDiv.textContent = "Erreur : " + error.message;
     }
 });
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".exercise").forEach((exercise) => {
+        const runButton = exercise.querySelector(".editor button");
+        const codeEditor = exercise.querySelector(".editor textarea");
+        const outputDiv = exercise.querySelector(".editor #output");
+
+        runButton.addEventListener("click", () => {
+            try {
+                let result = eval(codeEditor.value);
+                outputDiv.textContent = result !== undefined ? result : "Code exécuté sans retour.";
+            } catch (error) {
+                outputDiv.textContent = "Erreur : " + error.message;
+            }
+        });
+    });
 
     </script>
 </body>
