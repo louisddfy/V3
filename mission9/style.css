@@ -34,6 +34,9 @@ body {
     width: 80%;
     max-width: 900px;
     animation: fadeIn 1s ease-in-out;
+    display: flex;
+    flex-direction: column; /* Pour que les éléments soient disposés en colonne */
+    align-items: flex-end; /* Pour aligner les éléments horizontalement à droite */
 }
 
 /* En-tête */
@@ -131,6 +134,9 @@ body {
     padding: 15px;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
+    margin-top: 20px; /* Ajout d'une marge en haut pour l'espacement */
+    align-self: flex-end; /* Alignement à droite */
+    width: fit-content; /* Ajustement de la largeur au contenu */
 }
 
 .facture-total h3 {
@@ -143,7 +149,7 @@ body {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-10px);
     }
     to {
         opacity: 1;
