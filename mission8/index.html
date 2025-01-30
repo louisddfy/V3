@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateforme d'Auto-formation</title>
+    <link rel="stylesheet" href="index.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Plateforme d'Auto-formation JavaScript</h1>
+    </header>
+    <main>
+        <section id="exercises">
+            <h2>Liste des exercices</h2>
+            <ul id="exercise-list"></ul>
+        </section>
+        <section id="exercise-detail" style="display: none;">
+            <h2 id="exercise-title"></h2>
+            <p id="exercise-description"></p>
+            <div id="exercise-demo">
+                <input type="number" id="input1" placeholder="Entrez un nombre">
+                <input type="number" id="input2" placeholder="Entrez un autre nombre">
+                <button id="execute-exercise">Exécuter</button>
+                <p>Résultat: <span id="exercise-result"></span></p>
+            </div>
+            <button id="show-solution">Voir la solution</button>
+            <pre id="exercise-solution" style="display: none;"></pre>
+        </section>
+    </main>
+</body>
+</html>
