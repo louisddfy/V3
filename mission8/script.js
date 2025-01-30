@@ -4,6 +4,16 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Addition de deux nombres",
             description: "Créez une fonction qui retourne la somme de deux nombres.",
             solution: "function addition(a, b) { return a + b; }"
+        },
+        {
+            title: "Factorielle d'un nombre",
+            description: "Créez une fonction qui retourne la factorielle d'un nombre donné.",
+            solution: "function factorielle(n) { return n <= 1 ? 1 : n * factorielle(n - 1); }"
+        },
+        {
+            title: "Afficher Hello World en Java",
+            description: "Écrivez un programme Java qui affiche 'Hello World'.",
+            solution: "public class HelloWorld { public static void main(String[] args) { System.out.println(\"Hello World\"); } }"
         }
     ];
 
@@ -14,11 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const exerciseSolution = document.getElementById("exercise-solution");
     const showSolutionButton = document.getElementById("show-solution");
     const executeExerciseButton = document.getElementById("execute-exercise");
-    const input1 = document.getElementById("input1");
-    const input2 = document.getElementById("input2");
+    const userInput = document.getElementById("user-input");
     const exerciseResult = document.getElementById("exercise-result");
+    const showCodeButton = document.getElementById("show-code");
 
-    exercises.forEach((exercise, index) => {
+    exercises.forEach((exercise) => {
         let listItem = document.createElement("li");
         listItem.textContent = exercise.title;
         listItem.addEventListener("click", () => {
@@ -35,12 +45,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     executeExerciseButton.addEventListener("click", () => {
-        const a = parseFloat(input1.value);
-        const b = parseFloat(input2.value);
-        if (!isNaN(a) && !isNaN(b)) {
-            exerciseResult.textContent = a + b;
+        const input = userInput.value;
+        if (input) {
+            exerciseResult.textContent = `Votre entrée: ${input}`;
         } else {
-            exerciseResult.textContent = "Veuillez entrer des nombres valides";
+            exerciseResult.textContent = "Veuillez entrer une valeur";
         }
+    });
+
+    showCodeButton.addEventListener("click", () => {
+        exerciseSolution.style.display = "block";
     });
 });
