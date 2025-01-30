@@ -165,3 +165,35 @@ body {
 .facture-container {
     animation: none;
 }
+.skip {
+    position: fixed;
+    bottom: 20px; /* Ajustez cette valeur selon votre besoin */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+}
+.skip a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.2s;
+}
+
+.skip a img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.skip a:hover {
+    transform: scale(1.1);
+}
+
+.skip a span {
+    font-size: 1.2em;
+    text-align: center;
+}
