@@ -1,33 +1,312 @@
+
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plateforme d'Auto-formation</title>
-    <link rel="stylesheet" href="index.css">
-    <script defer src="script.js"></script>
+    <title>Banque d'Exercices JavaScript</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f4f8;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #d1d1d6;
+        }
+
+        /* Main Section */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .exercise {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .exercise:hover {
+            transform: translateY(-5px);
+        }
+
+        .exercise h2 {
+            font-size: 1.8rem;
+            color: #4e54c8;
+            margin-bottom: 10px;
+        }
+
+        .exercise p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .exercise button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-right: 10px;
+        }
+
+        .solution-btn {
+            background-color: #4e54c8;
+            color: #fff;
+        }
+
+        .solution-btn:hover {
+            background-color: #434190;
+            transform: scale(1.05);
+        }
+
+        .demo-btn {
+            background-color: #8f94fb;
+            color: #fff;
+        }
+
+        .demo-btn:hover {
+            background-color: #757be8;
+            transform: scale(1.05);
+        }
+
+        .return-btn {
+            background-color: #007bff;
+            color: #fff;
+            display: block;
+            margin: 20px auto;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .return-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .modal-content h3 {
+            color: #4e54c8;
+            margin-bottom: 15px;
+        }
+
+        .modal-content pre {
+            background: #f0f4f8;
+            color: #333;
+            padding: 10px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            text-align: left;
+            overflow: auto;
+        }
+
+        .close-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
+
 <body>
     <header>
-        <h1>Plateforme d'Auto-formation JavaScript</h1>
+        <h1>Banque d'Exercices JavaScript</h1>
+        <p>Améliorez vos compétences en résolvant des exercices pratiques !</p>
     </header>
     <main>
-        <section id="exercises">
-            <h2>Liste des exercices</h2>
-            <ul id="exercise-list"></ul>
-        </section>
-        <section id="exercise-detail" style="display: none;">
-            <h2 id="exercise-title"></h2>
-            <p id="exercise-description"></p>
-            <div id="exercise-demo">
-                <input type="number" id="input1" placeholder="Entrez un nombre">
-                <input type="number" id="input2" placeholder="Entrez un autre nombre">
-                <button id="execute-exercise">Exécuter</button>
-                <p>Résultat: <span id="exercise-result"></span></p>
-            </div>
-            <button id="show-solution">Voir la solution</button>
-            <pre id="exercise-solution" style="display: none;"></pre>
-        </section>
+        <!-- Dynamic Exercises -->
+        <div class="exercise">
+            <h2>1. Somme</h2>
+            <p>Écrire une fonction qui prend deux nombres en entrée et retourne leur somme.</p>
+            <button class="solution-btn">Voir la solution</button>
+            <button class="demo-btn">Voir la démonstration</button>
+        </div>
+        <div class="exercise">
+            <h2>2. Afficher 1..10</h2>
+            <p>Écrire une fonction qui affiche les nombres de 1 à 10 dans la console.</p>
+            <button class="solution-btn">Voir la solution</button>
+            <button class="demo-btn">Voir la démonstration</button>
+        </div>
+        <div class="exercise">
+            <h2>3. Plus grand nombre</h2>
+            <p>Écrire une fonction qui retourne le plus grand entre deux nombres donnés.</p>
+            <button class="solution-btn">Voir la solution</button>
+            <button class="demo-btn">Voir la démonstration</button>
+        </div>
+        <div class="exercise">
+            <h2>4. Factorielle</h2>
+            <p>Écrire une fonction qui calcule la factorielle d'un nombre donné.</p>
+            <button class="solution-btn">Voir la solution</button>
+            <button class="demo-btn">Voir la démonstration</button>
+        </div>
+        <div class="exercise">
+            <h2>5. Palindrome</h2>
+            <p>Écrire une fonction qui vérifie si une chaîne de caractères est un palindrome.</p>
+            <button class="solution-btn">Voir la solution</button>
+            <button class="demo-btn">Voir la démonstration</button>
+        </div>
+        <div class="exercise">
+            <h2>6. Compter les voyelles</h2>
+            <p>Écrire une fonction qui compte le nombre de voyelles dans une chaîne.</p>
+            <button class="solution-btn">Voir la solution</button>
+            <button class="demo-btn">Voir la démonstration</button>
+        </div>
+        <div class="exercise">
+            <h2>7. Tri d'un tableau</h2>
+            <p>Écrire une fonction qui trie un tableau d'entiers dans l'ordre croissant.</p>
+            <button class="solution-btn">Voir la solution</button>
+            <button class="demo-btn">Voir la démonstration</button>
+        </div>
+        <div class="exercise">
+            <h2>8. FizzBuzz</h2>
+            <p>Écrire une fonction qui affiche les nombres de 1 à 100 avec les règles de FizzBuzz.</p>
+            <button class="solution-btn">Voir la solution</button>
+            <button class="demo-btn">Voir la démonstration</button>
+        </div>
+        <div class="exercise">
+            <h2>9. Fibonacci</h2>
+            <p>Écrire une fonction qui génère les n premiers termes de la suite de Fibonacci.</p>
+            <button class="solution-btn">Voir la solution</button>
+            <button class="demo-btn">Voir la démonstration</button>
+        </div>
+        <div class="exercise">
+            <h2>10. Éléments uniques</h2>
+            <p>Écrire une fonction qui retourne les éléments uniques d'un tableau.</p>
+            <button class="solution-btn">Voir la solution</button>
+            <button class="demo-btn">Voir la démonstration</button>
+        </div>
+        <button class="return-btn" onclick="window.location.href='../index.html'">Retour à la page d'accueil</button>
     </main>
+
+    <!-- Modal -->
+    <div class="modal" id="modal" style="display: none;">
+        <div class="modal-content">
+            <h3 id="modal-title"></h3>
+            <pre id="modal-content"></pre>
+            <button class="close-btn" id="close-btn">Fermer</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const exerciseData = [
+                { title: "1. Somme", solution: `function somme(a, b) { return a + b; }`, demo: "somme(5, 3) = 8" },
+                { title: "2. Afficher 1..10", solution: `function afficher() { for (let i = 1; i <= 10; i++) { console.log(i); } }`, demo: "Résultat dans la console." },
+                { title: "3. Plus grand nombre", solution: `function max(a, b) { return a > b ? a : b; }`, demo: "max(7, 3) = 7" },
+                { title: "4. Factorielle", solution: `function factorielle(n) { if (n === 0) return 1; return n * factorielle(n - 1); }`, demo: "factorielle(5) = 120" },
+                { title: "5. Palindrome", solution: `function estPalindrome(str) { return str === str.split('').reverse().join(''); }`, demo: "estPalindrome('radar') = true" },
+                { title: "6. Compter les voyelles", solution: `function compterVoyelles(str) { return str.match(/[aeiou]/gi).length; }`, demo: "compterVoyelles('bonjour') = 3" },
+                { title: "7. Tri d'un tableau", solution: `function trierTableau(arr) { return arr.sort((a, b) => a - b); }`, demo: "trierTableau([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]) = [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]" },
+                { title: "8. FizzBuzz", solution: `function fizzBuzz() { for (let i = 1; i <= 100; i++) { if (i % 15 === 0) console.log('FizzBuzz'); else if (i % 3 === 0) console.log('Fizz'); else if (i % 5 === 0) console.log('Buzz'); else console.log(i); } }`, demo: "Résultat dans la console." },
+                { title: "9. Fibonacci", solution: `function fibonacci(n) { let fib = [0, 1]; for (let i = 2; i < n; i++) { fib[i] = fib[i - 1] + fib[i - 2]; } return fib; }`, demo: "fibonacci(10) = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]" },
+                { title: "10. Éléments uniques", solution: `function elementsUniques(arr) { return [...new Set(arr)]; }`, demo: "elementsUniques([1, 2, 2, 3, 4, 4, 5]) = [1, 2, 3, 4, 5]" }
+            ];
+
+            function showModal(title, content) {
+                const modal = document.getElementById('modal');
+                const modalTitle = document.getElementById('modal-title');
+                const modalContent = document.getElementById('modal-content');
+                modalTitle.textContent = title;
+                modalContent.textContent = content;
+                modal.style.display = 'flex';
+            }
+
+            function closeModal() {
+                const modal = document.getElementById('modal');
+                modal.style.display = 'none';
+            }
+
+            const exercises = document.querySelectorAll(".exercise");
+            exercises.forEach((exercise, index) => {
+                const solutionBtn = exercise.querySelector('.solution-btn');
+                const demoBtn = exercise.querySelector('.demo-btn');
+
+                solutionBtn.addEventListener('click', () => {
+                    showModal(exerciseData[index].title, exerciseData[index].solution);
+                });
+
+                demoBtn.addEventListener('click', () => {
+                    showModal(exerciseData[index].title, exerciseData[index].demo);
+                });
+            });
+
+            document.getElementById('close-btn').addEventListener('click', closeModal);
+        });
+    </script>
 </body>
+
 </html>
