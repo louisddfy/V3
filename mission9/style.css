@@ -165,3 +165,20 @@ body {
 .facture-container {
     animation: none;
 }
+CSS
+
+#retour {
+    background: var(--secondary-color); /* Gray color for back button */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 16px;
+}
+
+#retour:hover {
+    background: var(--secondary-color);
+    opacity: 0.8;
+}
