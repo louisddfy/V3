@@ -26,10 +26,8 @@ body {
 
 .menu {
     display: flex;
-    justify-content: center; /* Centre les éléments */
-    flex-wrap: wrap; /* Permet le retour à la ligne si l’espace manque */
-    gap: 80px; /* Augmente l'espacement entre les éléments */
-    width: 80%; /* Assure un bon positionnement */
+    justify-content: space-around; /* Cette ligne est la plus importante */
+    gap: 10px; /* Ajuste cet espace comme tu le souhaites */
 }
 
 .menu a {
@@ -39,9 +37,6 @@ body {
     text-decoration: none;
     color: #fff;
     transition: transform 0.2s;
-    min-width: 10px; /* Assure un espace minimum */
-    flex-grow: 1; /* Permet une répartition plus équilibrée */
-    text-align: center;
 }
 
 .menu a img {
