@@ -39,7 +39,7 @@ body {
     text-decoration: none;
     color: #fff;
     transition: transform 0.2s;
-    min-width: 120px; /* Assure un espace minimum */
+    min-width: 10px; /* Assure un espace minimum */
     flex-grow: 1; /* Permet une répartition plus équilibrée */
     text-align: center;
 }
