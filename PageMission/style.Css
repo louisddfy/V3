@@ -26,8 +26,9 @@ body {
 
 .menu {
     display: flex;
-    justify-content: space-around; /* Cette ligne est la plus importante */
-    gap: 5px; /* Ajuste cet espace comme tu le souhaites */
+    justify-content: center; /* Centre les éléments horizontalement */
+    gap: 40px; /* Augmente l'espace entre les missions */
+    flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
 }
 
 .menu a {
