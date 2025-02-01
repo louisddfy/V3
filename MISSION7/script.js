@@ -107,6 +107,10 @@ const questions = [
       }
     });
     alert(`Score : ${score}/${questions.length}`);
+  } 
+  function clearAnswers() {
+    answers = [];
+    document.querySelectorAll('.option').forEach(option => option.classList.remove('selected'));
   }
 
   // Initialiser le quizz
