@@ -109,23 +109,5 @@ const questions = [
     alert(`Score : ${score}/${questions.length}`);
   }
 
-  function showAnswers() {
-    let answersHtml = '<h2>CorrigÃ©</h2>';
-    questions.forEach((question, index) => {
-      answersHtml += `<h3>Question ${index + 1}</h3>`;
-      answersHtml += `<p>Question : ${question.text}</p>`;
-      answersHtml += `<p>Bonne(s) rÃ©ponse(s) : ${question.options.filter((_, i) => question.correct.includes(i)).join(', ')}</p>`;
-    });
-    const newWindow = window.open('', '_blank');
-    newWindow.document.write(answersHtml);
-    newWindow.document.close();
-  }
-
- 
-  function clearAnswers() {
-    answers = [];
-    document.querySelectorAll('.option').forEach(option => option.classList.remove('selected'));
-  }
-
   // Initialiser le quizz
   generateQuestions();
