@@ -2,67 +2,67 @@
 const questions = [
     {
       id: 1,
-      text: "Quelle est la capitale de la France ?",
-      options: ["Lyon", "Paris", "Marseille", "Bordeaux"],
-      correct: [1] // Index des rÃ©ponses correctes
+      text: "Quel est le rôle principal d'un système d'exploitation ?",
+      options: ["Exécuter des scripts Python", "Gérer les ressources matérielles et logicielles", "Protéger contre les virus", "Compiler du code source"],
+      correct: [1] 
     },
     {
       id: 2,
-      text: "Quel est le plus grand ocÃ©an ?",
-      options: ["Pacifique", "Atlantique", "Indien", "Arctique"],
-      correct: [0]
+      text: "Quel protocole est principalement utilisé pour envoyer des emails ?",
+      options: ["HTTP", "FTP", "SMTP", "SNMP"],
+      correct: [2]
     },
     {
       id: 3,
-      text: "Qui est le premier homme Ã  avoir marchÃ© sur la Lune ?",
-      options: ["Neil Armstrong", "Buzz Aldrin", "Elon Musk", "Jeff Bezos"],
-      correct: [0]
+      text: "Que signifie SQL ?",
+      options: ["Secure Query Language", "Standard Question Language", "Structured Query Language", "System Query Logic"],
+      correct: [2]
     },
     {
       id: 4,
-      text: "Quelle est la planÃ¨te la plus proche du Soleil ?",
-      options: ["Venus", "Mercure", "Mars", "Terre"],
-      correct: [1]
+      text: "Dans un réseau informatique, que signifie l'adresse IP 192.168.1.1 ?",
+      options: ["Une adresse publique", "Une adresse de loopback", "Une adresse privée", "Une adresse réservée aux serveurs DNS"],
+      correct: [2]
     },
     {
       id: 5,
-      text: "Quel est le plus grand pays du monde par la superficie ?",
-      options: ["Russie", "Canada", "Chine", "Ã‰tats-Unis"],
-      correct: [0]
+      text: " Quel composant stocke les données à court terme pour un accès rapide par le processeur ?",
+      options: ["SSD", "RAM", "ROM", "Carte Graphique"],
+      correct: [1]
     },
     {
       id: 6,
-      text: "Quelle est la langue la plus parlÃ©e au monde ?",
-      options: ["Mandarin", "Anglais", "Espagnol", "FranÃ§ais"],
-      correct: [0]
+      text: "Quel est le rôle principal d'un pare-feu (firewall) ?",
+      options: ["Optimiser la vitesse d’Internet", "Bloquer les connexions réseau non autorisées", "Accélérer l’exécution des programmes", "Réparer automatiquement les fichiers corrompus"],
+      correct: [1]
     },
     {
       id: 7,
-      text: "Quel est le nom du plus grand fleuve du monde ?",
-      options: ["Nil", "Amazone", "Yangzi", "Mississippi"],
-      correct: [0]
+      text: "Quel langage est principalement utilisé pour le développement d’applications Android ?",
+      options: ["Python", "C++", "Java/Kotlin", "Swift"],
+      correct: [2]
     },
     {
       id: 8,
-      text: "Qui est l'auteur du livre 'Harry Potter' ?",
-      options: ["J.K. Rowling", "Stephen King", "J.R.R. Tolkien", "George R.R. Martin"],
-      correct: [0]
+      text: "Quelle est la différence principale entre HTTP et HTTPS ?",
+      options: ["HTTPS est plus rapide que HTTP", "HTTPS chiffre les communications avec TLS/SSL", " HTTP utilise plus de bande passante", "HTTPS est réservé aux sites gouvernementaux"],
+      correct: [1]
     },
     {
       id: 9,
-      text: "Quelle est la capitale du Japon ?",
-      options: ["Tokyo", "Osaka", "Kyoto", "Hiroshima"],
-      correct: [0]
+      text: "Quelle structure de données fonctionne selon le principe Last In, First Out (LIFO) ?",
+      options: ["Une liste chaînée", "Une file (queue)", "Une pile (stack)", "Un tableau"],
+      correct: [2]
     },
     {
       id: 10,
-      text: "Quel est le nom du systÃ¨me d'exploitation de Google ?",
-      options: ["Windows", "macOS", "Linux", "Android"],
-      correct: [3]
+      text: "Quel outil Windows permet d’analyser la performance du système en détail ?",
+      options: ["Gestionnaire des tâches", "Observateur d’événements", "Analyseur de performance", "Panneau de configuration"],
+      correct: [2]
     }
   ];
 
-  // GÃ©nÃ©rer les questions
+ 
   function generateQuestions() {
     const questionsDiv = document.getElementById('questions');
     questionsDiv.innerHTML = '';
@@ -84,7 +84,7 @@ const questions = [
     });
   }
 
-  // SÃ©lectionner une option
+
   function selectOption(questionIndex, optionIndex) {
     const options = document.querySelectorAll(`[data-question="${questionIndex}"] .option`);
     options.forEach(option => option.classList.remove('selected'));
@@ -93,13 +93,12 @@ const questions = [
     saveAnswer(questionIndex, optionIndex);
   }
 
-  // Sauvegarder les rÃ©ponses
+
   let answers = [];
   function saveAnswer(questionIndex, optionIndex) {
     answers[questionIndex] = optionIndex;
   }
 
-  // Calculer le score
   function testqcm() {
     let score = 0;
     answers.forEach((answer, index) => {
@@ -110,7 +109,6 @@ const questions = [
     alert(`Score : ${score}/${questions.length}`);
   }
 
-  // Afficher les bonnes rÃ©ponses
   function showAnswers() {
     let answersHtml = '<h2>CorrigÃ©</h2>';
     questions.forEach((question, index) => {
@@ -123,7 +121,7 @@ const questions = [
     newWindow.document.close();
   }
 
-  // Effacer les rÃ©ponses
+ 
   function clearAnswers() {
     answers = [];
     document.querySelectorAll('.option').forEach(option => option.classList.remove('selected'));
